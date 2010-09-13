@@ -1,0 +1,63 @@
+body {
+  color:#666;
+  background:#aae;
+
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-top: 2em;
+  font-family: arial,sans-serif;
+}
+
+a:link {
+  color:#000;
+}
+
+a:visited {
+  color:#000;
+}
+
+textarea {
+  font-family: 'Droid Sans Mono', arial, serif;
+  width: 100%;
+}
+
+#topbar {
+  position: absolute;
+  font-size: 66%;
+  align: right;
+  top: 0.5em;
+  right: 1em;
+}
+
+#topbar a {
+  text-decoration: none;
+}
+
+#footer {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 66%;
+}
+
+#footer a {
+  text-decoration: none;
+}
+
+.onesnippet .header {
+  color: #000;
+  font-weight: bold;
+}
+
+h1 {
+  padding: 0.5em;
+  padding-top: 0.3em;
+  border: 2px solid black;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: #ccc;
+}
+
+h1 a:link, h1 a:visited {
+  text-decoration: none;
+  color:#666;
+}

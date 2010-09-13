@@ -1,0 +1,7 @@
+<div class="onesnippet">
+  <p class="header">$USERNAME: $TIMESTAMP</p>
+
+  <p>
+  $SNIP
+  </p>
+</div>

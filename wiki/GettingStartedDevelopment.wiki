@@ -1,0 +1,8 @@
+#summary Getting your development environment set up.
+#labels Phase-Implementation
+
+= Checking out the code =
+
+= Setting up Apache =
+
+= Testing your setup =

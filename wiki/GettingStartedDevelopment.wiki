@@ -31,9 +31,7 @@ Now we'll edit the `userdir.conf` file. Replace "gedit" with your favorite edito
 $ sudo gedit /etc/apache2/mods-available/userdir.conf
 }}}
 
-At the end of the line that starts with "Options", add: ` +ExecCGI +FollowSymlinks`
-
-Now, just before the line that says `</IfModule>`, add this block:
+Just before the line that says `</IfModule>`, add this block:
 {{{
         <Directory /home/*/public_html/cgi>
                 AllowOverride None

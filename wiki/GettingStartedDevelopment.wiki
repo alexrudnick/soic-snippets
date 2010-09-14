@@ -1,8 +1,53 @@
 #summary Getting your development environment set up.
 #labels Phase-Implementation
 
+In these instructions, we'll walk through getting set up so that you can run Snippets on your own computer, so you can help with development. It's written with Ubuntu in mind, but it should be easy to adapt to another Linux, and straightforward for other Unix-like systems. You'll also need Python 2.6, which you probably already have.
+
 = Checking out the code =
+
+Go here for how to check out the code:
+http://code.google.com/p/soic-snippets/source/checkout
+
+Let's assume that you check it out to `~/soic-snippets`.
 
 = Setting up Apache =
 
+On Ubuntu, you'll need the package `apache2`. So type:
+{{{
+$ sudo aptitude install apache2
+}}}
+
+Now we have to make some small changes to your Apache configs...
+
+(TODO: write down what those are)
+
+Having made those changes, restart Apache.
+{{{
+$ sudo /etc/init.d/apache2 restart
+}}}
+
+= Setting up the database =
+Right now, Snippets uses sqlite for its database, so while it may not be high-performance, it's certainly easy to set up.
+
+Go into your soic-snippets directory and type:
+{{{
+$ ./makedbdir.sh
+}}}
+
+It will ask you for your password (possibly twice), because it has to do a `sudo` to change the permissions of the database file so that Apache can use it.
+
+= Accessing your snippets directory =
+Now we'll create a `public_html` directory in your home and make a link from that to your checkout of the Snippets code.
+
+{{{
+$ cd ~
+$ mkdir -p public_html
+$ chmod ugo+rx public_html
+$ ln -s /home/me/soic-snippets/ /home/me/public_html/cgi
+}}}
+
 = Testing your setup =
+Go here, replacing "me" with your username, of course:
+http://localhost/~me/cgi
+
+Hopefully that should work! Now edit the code and send us patches!

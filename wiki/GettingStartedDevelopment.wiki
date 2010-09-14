@@ -19,7 +19,28 @@ $ sudo aptitude install apache2
 
 Now we have to make some small changes to your Apache configs...
 
-(TODO: write down what those are)
+{{{
+$ sudo ln -s /etc/apache2/mods-available/userdir.conf /etc/apache2/mods-enabled/userdir.conf
+$ sudo ln -s /etc/apache2/mods-available/userdir.load /etc/apache2/mods-enabled/userdir.load
+$ sudo ln -s /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/cgi.load
+}}}
+
+Now we'll edit the `userdir.conf` file. Replace "gedit" with your favorite editor.
+
+{{{
+$ sudo gedit /etc/apache2/mods-available/userdir.conf
+}}}
+
+At the end of the line that starts with "Options", add: ` +ExecCGI +FollowSymlinks`
+
+Now, just before the line that says `</IfModule>`, add this block:
+{{{
+        <Directory /home/*/public_html/cgi>
+                AllowOverride None
+                Options ExecCGI +FollowSymLinks
+                AddHandler cgi-script .cgi
+        </Directory>
+}}}
 
 Having made those changes, restart Apache.
 {{{
@@ -34,7 +55,7 @@ Go into your soic-snippets directory and type:
 $ ./makedbdir.sh
 }}}
 
-It will ask you for your password (possibly twice), because it has to do a `sudo` to change the permissions of the database file so that Apache can use it.
+It may ask you for your password (possibly twice), because the script has to do a `sudo` to change the permissions of the database file so that Apache can use it.
 
 = Accessing your snippets directory =
 Now we'll create a `public_html` directory in your home and make a link from that to your checkout of the Snippets code.

@@ -3,6 +3,8 @@
 
 In these instructions, we'll walk through getting set up so that you can run Snippets on your own computer, so you can help with development. It's written with Ubuntu in mind, but it should be easy to adapt to another Linux, and straightforward for other Unix-like systems. You'll also need Python 2.6, which you probably already have.
 
+In general, replace "me" with your username.
+
 = Checking out the code =
 
 Go here for how to check out the code:
@@ -55,7 +57,7 @@ $ ./makedbdir.sh
 
 It may ask you for your password (possibly twice), because the script has to do a `sudo` to change the permissions of the database file so that Apache can use it.
 
-= Accessing your snippets directory =
+= Making snippets available to the webserver =
 Now we'll create a `public_html` directory in your home and make a link from that to your checkout of the Snippets code.
 
 {{{

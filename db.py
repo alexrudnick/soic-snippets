@@ -97,6 +97,22 @@ def getsubscribedsnippets(subscriber):
                      , (subscriber,)).fetchall()
     return rows
 
+def getsubscribers(username):
+    """Return a list of all the usernames that are subscribed to the given
+    user, in alphabetical order."""
+    subscriberset = set()
+    conn = sqlite3.connect(THEDB)
+    c = conn.cursor()
+    c.execute("select subscriber from subscriptions " \
+                "where subscribee=?",
+                (username,))
+    rows = c.fetchall()
+    for r in rows:
+        subscriberset.add(r[0])
+    subscribers = list(subscriberset)
+    subscribers.sort()
+    return subscribers
+
 def main():
     """Initialize tables that we'll need if they're not already created and
     print out all the db contents, just to see what we have."""

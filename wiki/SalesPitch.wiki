@@ -1,0 +1,19 @@
+#summary Why you should get involve
+
+= Why you should use Snippets =
+
+== ...if you're a student ==
+
+== ...if you're a researcher ==
+
+== ...if you're new to the SoIC ==
+
+= Why you should work on Snippets =
+
+== ...if you're a programmer ==
+
+== ...if you're an interaction designer ==
+
+== ...if you're new to Python and/or web development ==
+
+== ...if you're new to open source ==

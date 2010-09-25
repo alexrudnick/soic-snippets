@@ -1,7 +1,15 @@
 #summary Getting your development environment set up on Linux.
 #labels Phase-Implementation
 
-In these instructions, we'll walk through getting set up so that you can run Snippets on your own computer, so you can help with development. It's written with Ubuntu in mind, but it should be easy to adapt to another Linux, and straightforward for other Unix-like systems. If you have a Mac, please see GettingStartedDevelopmentMac. You'll also need Python 2.6, which you probably already have.
+If you're running Linux and not afraid of installing and configuring Apache, these instructions are for you.
+
+If you have a Mac, and aren't afraid of configuring Apache, please see GettingStartedDevelopmentMac.
+
+Otherwise, you probably want GettingStartedDevelopmentSimple.
+
+----
+
+In these instructions, we'll walk through getting set up so that you can run Snippets on your own computer, so you can help with development. It's written with Ubuntu in mind, but it should be easy to adapt to another Linux, and straightforward for other Unix-like systems. You'll also need Python 2.6, which you probably already have.
 
 In general, replace "me" with your username.
 

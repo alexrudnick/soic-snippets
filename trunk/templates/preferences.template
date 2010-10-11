@@ -8,8 +8,9 @@
     <p>
     <input type="checkbox"
         value="weeklyreminder"
+        id="weeklyreminder"
         name="weeklyreminder" $CHECKED />
-    Receive weekly reminders? 
+    <label for="weeklyreminder">Receive weekly reminders?</label>
     </p>
     
     <input type="submit" value="Save!"/> 

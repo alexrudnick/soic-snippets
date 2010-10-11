@@ -2,6 +2,7 @@
 <div id="footer">
 
 [<a href="subscriptions.cgi">edit subscriptions</a>]
+[<a href="preferences.cgi">edit preferences</a>]
 [<a href="viewallsnippets.cgi">view all snippets</a>]
 [<a href="viewusers.cgi">view all users</a>]
 [<a href="viewsubscribers.cgi">see who subscribes to you</a>]

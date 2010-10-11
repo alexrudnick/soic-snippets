@@ -113,6 +113,52 @@ def getsubscribers(username):
     subscribers.sort()
     return subscribers
 
+def getallsubscribers():
+    """Return a list of all the usernames that are subscribed to anybody,
+    in alphabetical order."""
+    subscribers = []
+    conn = sqlite3.connect(THEDB)
+    c = conn.cursor()
+    c.execute("select distinct subscriber from subscriptions " \
+              "order by subscriber")
+    rows = c.fetchall()
+    for r in rows:
+        subscribers.append(r[0])
+    return subscribers
+
+def getremindees():
+    remindees = []
+    conn = sqlite3.connect(THEDB)
+    c = conn.cursor()
+    c.execute("select distinct username from preferences " \
+              "where weeklyreminder = 1")
+    rows = c.fetchall()
+    for r in rows:
+        remindees.append(r[0])
+    return remindees
+
+def getpreferences(username):
+    conn = sqlite3.connect(THEDB)
+    c = conn.cursor()
+    c.execute("select weeklyreminder from preferences " \
+              "where username = ?",
+              (username,))
+    rows = c.fetchall()
+
+    out = {"weeklyreminder":False}
+    if len(rows) == 1:
+        out["weeklyreminder"] = bool(rows[0][0])
+    return out
+
+def savepreferences(username, prefs):
+    weeklyreminder = prefs["weeklyreminder"]
+    conn = sqlite3.connect(THEDB)
+    c = conn.cursor()
+    c.execute("insert or replace into preferences values (?,?)",
+        (username, weeklyreminder))
+    conn.commit()
+    c.close()
+
 def main():
     """Initialize tables that we'll need if they're not already created and
     print out all the db contents, just to see what we have."""
@@ -122,8 +168,12 @@ def main():
     # Create tables that we'll need.
     c.execute("""create table if not exists snippets
     (snip text, username text, time timestamp)""")
+ 
     c.execute("""create table if not exists subscriptions
     (subscriber text, subscribee text)""")
+
+    c.execute("""create table if not exists preferences
+    (username text primary key, weeklyreminder integer)""")
 
     conn.commit()
     c.close()

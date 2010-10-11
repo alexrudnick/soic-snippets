@@ -1,0 +1,19 @@
+Hello!
+
+Knowing that you love automated nag emails, I'm here to remind you to enter
+your weekly snippet.
+
+https://www.cs.indiana.edu/cgi-pub/alexr/snippets/
+
+After today, these emails are opt-in. If you don't want to get any more weekly
+reminders, do nothing!  If you'd like to continue to be reminded about
+snippets, please update your preferences at:
+
+https://www.cs.indiana.edu/cgi-pub/alexr/snippets/preferences.cgi
+
+
+Thanks!
+
+-- 
+-- the friendly automated snippet script
+-- 

@@ -19,11 +19,29 @@ import CGIHTTPServer
 import BaseHTTPServer
 
 class Handler(CGIHTTPServer.CGIHTTPRequestHandler):
-    cgi_directories = [""]
+    cgi_directories = ["", "/"]
+
+    def is_executable(self, path):
+        """Overrides the superclass is_executable."""
+        if (CGIHTTPServer.CGIHTTPRequestHandler.is_executable(self, path)):
+            return True
+        if self.is_python(path):
+            return True
+        return False
+
+    def is_python(self, path):
+        """Return True if the superclass thinks its true, or if the path ends
+        with .cgi"""
+        if (CGIHTTPServer.CGIHTTPRequestHandler.is_python(self, path)):
+            return True
+        if path.endswith(".cgi"):
+            return True
+        return False
 
     def is_cgi(self):
         if CGIHTTPServer.CGIHTTPRequestHandler.is_cgi(self):
-            if self.is_executable(self.translate_path(self.path)):
+            path = self.translate_path(self.path)
+            if self.is_executable(path) or path.endswith(".cgi"):
                 return True
         return False
 
@@ -33,13 +51,13 @@ class Handler(CGIHTTPServer.CGIHTTPRequestHandler):
         return CGIHTTPServer.CGIHTTPRequestHandler.do_GET(self)
 
 import sys
-def main():
+def main(argv=[]):
     PORT = 8000
-    if len(sys.argv) > 1:
-        PORT = int(sys.argv[1])
+    if len(argv) > 1:
+        PORT = int(argv[1])
 
     httpd = BaseHTTPServer.HTTPServer(("", PORT), Handler)
     print ("Serving snippets at: http://localhost:%d/" % (PORT,))
     httpd.serve_forever()
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": main(sys.argv)

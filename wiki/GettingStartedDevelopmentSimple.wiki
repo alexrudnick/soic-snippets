@@ -17,7 +17,20 @@ $ mkdir -p db
 $ ./db.py
 }}}
 
+On Windows (from the command line):
+{{{
+REM Go to the directory with the snippets code, then make the directory.
+mkdir db
+REM Replace this with the path to your Python executable.
+c:\Python27\python.exe db.py
+}}}
+
 = Run the test server =
 Now just run `testserver.py`. You can optionally specify which port you want to run it on; the default is 8000.
 
 It will print out the url of your snippets test server! By default, this is http://localhost:8000 .
+
+On Windows, it's best to do this from the command line:
+{{{
+c:\Python27\python.exe testserver.py
+}}}

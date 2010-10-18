@@ -5,9 +5,8 @@ your weekly snippet.
 
 https://www.cs.indiana.edu/cgi-pub/alexr/snippets/
 
-After today, these emails are opt-in. If you don't want to get any more weekly
-reminders, do nothing!  If you'd like to continue to be reminded about
-snippets, please update your preferences at:
+If you'd like to change whether you'll get these weekly reminders, please
+visit:
 
 https://www.cs.indiana.edu/cgi-pub/alexr/snippets/preferences.cgi
 

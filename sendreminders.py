@@ -7,15 +7,6 @@ from email.mime.text import MIMEText
 
 import db
 
-def geteverybody():
-    subscribers = db.getallsubscribers()
-    posters = db.getallusers()
-    both = set(subscribers + posters)
-    everybody = list(both)
-    everybody.sort()
-
-    return everybody
-
 def buildmessage():
     # Open a plain text file for reading.  For this example, assume that
     # the text file contains only ASCII characters.
@@ -49,7 +40,7 @@ def sendemails(usernames,ask):
 import sys
 def main():
     if "blast" in sys.argv[1:]:
-        usernames = geteverybody()
+        usernames = db.geteverybody()
     else:
         usernames = db.getremindees()
     ask = False

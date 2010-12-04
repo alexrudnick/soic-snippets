@@ -149,6 +149,17 @@ def getremindees():
         remindees.append(r[0])
     return remindees
 
+def geteverybody():
+    """Returns the list of everyone in the system -- everybody who has ever
+    posted a snippet or subscribed to someone."""
+
+    subscribers = getallsubscribers()
+    posters = getallusers()
+    both = set(subscribers + posters)
+    everybody = list(both)
+    everybody.sort()
+    return everybody
+
 def getpreferences(username):
     conn = sqlite3.connect(THEDB)
     c = conn.cursor()

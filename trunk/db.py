@@ -39,6 +39,18 @@ def getsnippetsfor(username):
                      , (username,)).fetchall()
     return rows
 
+def getonesnippetfor(username):
+    """Get the most recent snippet for the specified user and return it. If
+    there are no snippets for that user, return None."""
+    conn = sqlite3.connect(THEDB)
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+    row = c.execute("select * from snippets "
+                     + "where username = ? "
+                     + "order by time desc "
+                     , (username,)).fetchone()
+    return row
+
 def getallusers():
     outset = set()
     conn = sqlite3.connect(THEDB)

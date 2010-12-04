@@ -48,6 +48,10 @@ textarea {
   font-weight: bold;
 }
 
+.onesnippet .thesnippet p:first-child {
+  margin-top: 0;
+}
+
 h1 {
   padding: 0.5em;
   padding-top: 0.3em;

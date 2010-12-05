@@ -21,12 +21,18 @@ def savesnippet(snippet, user):
     # We can also close the cursor if we are done with it
     c.close()
 
-
-def getallsnippets():
+def getallsnippets(start=None, end=None):
     conn = sqlite3.connect(THEDB)
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
-    rows = c.execute("select * from snippets order by time desc").fetchall()
+
+    if (not start) or (not end):
+        rows = (c.execute("select * from snippets order by time desc")
+                 .fetchall())
+    else:
+        rows = c.execute("""select * from snippets
+                            where time > ?
+                              and time < ?""", (start, end)).fetchall()
     return rows
 
 def getsnippetsfor(username):
@@ -64,7 +70,6 @@ def getallusers():
     out.sort()
     return out
 
-
 def savesubscription(subscriber, subscribee):
     conn = sqlite3.connect(THEDB)
     c = conn.cursor()
@@ -98,15 +103,24 @@ def getsubscriptions(username):
     out.sort()
     return out
 
-def getsubscribedsnippets(subscriber):
+def getsubscribedsnippets(subscriber, start=None, end=None):
     conn = sqlite3.connect(THEDB)
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
-    rows = c.execute("select username,snip,time from snippets,subscriptions "
-                     + "where subscriptions.subscriber = ? "
-                     + "and subscriptions.subscribee = snippets.username "
-                     + "order by time desc "
-                     , (subscriber,)).fetchall()
+    if (not start) or (not end):
+        rows = c.execute(
+            """select username,snip,time from snippets,subscriptions 
+                where subscriptions.subscriber = ? 
+                  and subscriptions.subscribee = snippets.username 
+             order by time desc """, (subscriber,)).fetchall()
+    else:
+        rows = c.execute(
+            """select username,snip,time from snippets, subscriptions 
+                where subscriptions.subscriber = ? 
+                  and subscriptions.subscribee = snippets.username 
+                  and snippets.time > ?
+                  and snippets.time < ?
+             order by time desc """, (subscriber,start,end)).fetchall()
     return rows
 
 def getsubscribers(username):

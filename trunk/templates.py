@@ -40,7 +40,6 @@ def print_week_links(start, pagename):
     prevweek = timeutils.weekPrevious(start)
 
     print "<p>"
-    pagename = "viewallsnippets"
     template = loadtemplate("prevweeklink")
     print template.substitute(START=timeutils.tostring(prevweek),
                               PAGENAME=pagename)

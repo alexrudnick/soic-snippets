@@ -1,6 +1,9 @@
 import re
 import os
 
+import timeutils
+import templates
+
 ## linebreaks simplified from Django's awesome html filters.
 ## http://code.djangoproject.com/browser/django/trunk/django/utils/html.py
 def linebreaks(value):
@@ -26,3 +29,4 @@ def listout(usernames):
 username_pat = re.compile(r'^[a-z][a-z0-9]{2,7}$')
 def valid_username(username):
     return username_pat.match(username) is not None
+

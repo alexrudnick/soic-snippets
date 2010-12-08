@@ -32,7 +32,8 @@ def getallsnippets(start=None, end=None):
     else:
         rows = c.execute("""select * from snippets
                             where time > ?
-                              and time < ?""", (start, end)).fetchall()
+                              and time < ?
+                         order by time desc""", (start, end)).fetchall()
     return rows
 
 def getsnippetsfor(username):

@@ -1,4 +1,4 @@
-#!/l/python2.6/bin/python
+#!/l/python2.6/bin/python 
 
 """
 templates.py: code for doing simple HTML templating.

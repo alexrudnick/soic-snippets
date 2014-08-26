@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/l/python2.6/bin/python 
 
 """
 Test server for running Snippets system without having to set up Apache.

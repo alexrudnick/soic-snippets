@@ -3,12 +3,12 @@ Hello!
 Knowing that you love automated nag emails, I'm here to remind you to enter
 your weekly snippet.
 
-https://www.cs.indiana.edu/cgi-pub/alexr/snippets/
+https://cgi.soic.indiana.edu/~alexr/snippets/
 
 If you'd like to change whether you'll get these weekly reminders, please
 visit:
 
-https://www.cs.indiana.edu/cgi-pub/alexr/snippets/preferences.cgi
+https://cgi.soic.indiana.edu/~alexr/snippets/preferences.cgi
 
 
 Thanks!

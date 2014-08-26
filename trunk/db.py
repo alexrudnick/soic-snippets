@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/l/python2.6/bin/python 
 
 import sqlite3
 import datetime
 
-THEDB = "db/snippetdb"
+THEDB = "/u/alexr/cgi-pub/snippets/db/snippetdb"
 
 def savesnippet(snippet, user):
     """Save the snippet to the database, for the specified user, with the

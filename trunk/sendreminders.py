@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-    
+#!/l/python2.6/bin/python 
+ 
 # Import smtplib for the actual sending function
 # Import the email modules we'll need
 import smtplib
@@ -7,10 +7,12 @@ from email.mime.text import MIMEText
 
 import db
 
+REMINDER = "/u/alexr/cgi-pub/snippets/reminder.txt"
+
 def buildmessage():
     # Open a plain text file for reading.  For this example, assume that
     # the text file contains only ASCII characters.
-    with open("reminder.txt", 'rb') as fp:
+    with open(REMINDER, 'rb') as fp:
         msg = MIMEText(fp.read())
     msg['Subject'] = 'weekly automatic snippet reminder!'
     msg['From'] = "snippets-noreply@cs.indiana.edu"
@@ -22,8 +24,8 @@ def sendemails(usernames,ask):
     s = smtplib.SMTP("localhost")
 
     recipients = [("%s@indiana.edu" % (u,)) for u in usernames]
-    print "Sending emails to..."
-    print recipients
+    # print "Sending emails to..."
+    # print recipients
 
     if ask:
         yes = raw_input("OK? (type yes) ")

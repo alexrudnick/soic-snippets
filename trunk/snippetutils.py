@@ -1,3 +1,4 @@
+#!/l/python2.6/bin/python 
 import re
 import os
 
